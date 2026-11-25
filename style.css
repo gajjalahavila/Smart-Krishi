@@ -1,0 +1,190 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #164e35;
+    --green-light: #24784c;
+    --lime: #d8f36a;
+    --cream: #f7f8f2;
+    --text: #20382b;
+    --muted: #738077;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+}
+
+/* NAVBAR */
+header {
+    background: #fff;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+header h1 {
+    font-family: 'Manrope', sans-serif;
+    color: var(--green);
+    font-size: 28px;
+}
+
+header p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+nav {
+    background: white;
+    padding: 15px 7%;
+    display: flex;
+    gap: 35px;
+    border-top: 1px solid #edf0e8;
+}
+
+nav a {
+    text-decoration: none;
+    color: #42584a;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #269355;
+}
+
+/* HERO */
+.hero {
+    padding: 85px 8%;
+    background:
+        linear-gradient(90deg, rgba(15,48,32,.94), rgba(18,65,43,.75)),
+        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: left;
+}
+
+.hero h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(35px, 5vw, 62px);
+    max-width: 750px;
+    margin-bottom: 20px;
+    line-height: 1.15;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #e0eadf;
+    margin-bottom: 28px;
+}
+
+/* BUTTONS */
+button {
+    background: var(--lime);
+    color: #173c27;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #c7e653;
+}
+
+/* FEATURE CARDS */
+.features {
+    max-width: 1250px;
+    margin: auto;
+    padding: 55px 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.card {
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border: 1px solid #e9eee5;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(24, 61, 39, .05);
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(24, 61, 39, .10);
+}
+
+.card h2 {
+    font-family: 'Manrope', sans-serif;
+    color: var(--green);
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+
+.card p {
+    line-height: 1.8;
+    font-size: 15px;
+    color: #657469;
+    margin-bottom: 12px;
+}
+
+.card select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid #dce5db;
+    background: #f9fbf7;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* FOOTER */
+footer {
+    background: var(--green);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+/* MOBILE */
+@media (max-width: 850px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .hero {
+        padding: 60px 25px;
+    }
+
+    .hero h2 {
+        font-size: 38px;
+    }
+}

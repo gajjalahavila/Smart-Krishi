@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Prices | Smart Krishi</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.price-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+.price-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.price-heading h2 {
+    color: #176b38;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.price-cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    margin-bottom: 35px;
+}
+.price-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px #00000010;
+    text-align: center;
+}
+.price-card h3 {
+    color: #176b38;
+    margin-bottom: 12px;
+}
+.price-card .amount {
+    font-size: 27px;
+    font-weight: bold;
+    margin: 10px;
+}
+.price-card p {
+    color: #777;
+}
+.price-table {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px #00000010;
+    overflow-x: auto;
+}
+.price-table h2 {
+    color: #176b38;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+th {
+    background: #eaf5e8;
+    color: #176b38;
+}
+.price-note {
+    margin-top: 20px;
+    background: #fff8e5;
+    padding: 15px;
+    border-radius: 10px;
+    color: #755b20;
+}
+@media(max-width:700px) {
+    .price-cards {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌱 Smart Krishi</h1>
+    <p>Empowering Farmers, Growing Tomorrow</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="crops.html">Crop Guide</a>
+    <a href="weather.html">Weather</a>
+    <a href="prices.html">Market Prices</a>
+    <a href="disease.html">Disease Guide</a>
+    <a href="tips.html">Farming Tips</a>
+</nav>
+
+<section class="hero">
+    <h2>🌾 Know Your Crop Value</h2>
+    <p>Explore crop prices and make informed selling decisions.</p>
+</section>
+
+<div class="price-container">
+
+    <div class="price-heading">
+        <h2>💰 Market Price Dashboard</h2>
+        <p>Understand crop values before taking them to the market.</p>
+    </div>
+
+    <div class="price-cards">
+
+        <div class="price-card">
+            <h3>🌾 Rice</h3>
+            <div class="amount">₹2,300</div>
+            <p>Sample price / quintal</p>
+        </div>
+
+        <div class="price-card">
+            <h3>🥜 Groundnut</h3>
+            <div class="amount">₹6,000</div>
+            <p>Sample price / quintal</p>
+        </div>
+
+        <div class="price-card">
+            <h3>🌽 Maize</h3>
+            <div class="amount">₹2,100</div>
+            <p>Sample price / quintal</p>
+        </div>
+
+    </div>
+
+    <div class="price-table">
+
+        <h2>📊 Crop Price List</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Crop</th>
+                    <th>Market Price (₹/Quintal)</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Rice</td>
+                    <td>2,300</td>
+                    <td>Food Crop</td>
+                </tr>
+
+                <tr>
+                    <td>Groundnut</td>
+                    <td>6,000</td>
+                    <td>Oilseed</td>
+                </tr>
+
+                <tr>
+                    <td>Maize</td>
+                    <td>2,100</td>
+                    <td>Food Crop</td>
+                </tr>
+
+                <tr>
+                    <td>Cotton</td>
+                    <td>7,000</td>
+                    <td>Commercial Crop</td>
+                </tr>
+
+                <tr>
+                    <td>Chilli</td>
+                    <td>12,000</td>
+                    <td>Spice Crop</td>
+                </tr>
+
+                <tr>
+                    <td>Turmeric</td>
+                    <td>9,000</td>
+                    <td>Spice Crop</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="price-note">
+            ⚠️ These prices are sample values for demonstration only.
+            Actual market prices change daily depending on location,
+            quality, demand and supply. Check your nearest mandi for today's rate.
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>🌱 Smart Krishi | Smart Farming for a Better Future</p>
+</footer>
+
+</body>
+</html>

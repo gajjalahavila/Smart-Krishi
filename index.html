@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Krishi | Home</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.home-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 45px 25px;
+}
+.welcome {
+    margin-bottom: 35px;
+}
+.welcome h2 {
+    color: #176b38;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+.welcome p {
+    color: #68776c;
+    line-height: 1.8;
+}
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+.home-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px #00000010;
+    transition: .2s;
+}
+.home-card:hover {
+    transform: translateY(-5px);
+}
+.home-card-content {
+    padding: 25px;
+}
+.home-card h3 {
+    color: #176b38;
+    margin-bottom: 12px;
+}
+.home-card p {
+    color: #68776c;
+    line-height: 1.7;
+    min-height: 65px;
+}
+.home-card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 11px 18px;
+    background: #176b38;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.home-icon {
+    padding: 25px;
+    font-size: 42px;
+    background: #edf7e9;
+}
+.about-box {
+    background: #164e35;
+    color: white;
+    margin-top: 35px;
+    padding: 35px;
+    border-radius: 18px;
+    line-height: 1.8;
+}
+.about-box h2 {
+    margin-bottom: 12px;
+}
+@media(max-width:800px) {
+    .home-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media(max-width:550px) {
+    .home-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌱 Smart Krishi</h1>
+    <p>Empowering Farmers, Growing Tomorrow</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="crops.html">Crop Guide</a>
+    <a href="weather.html">Weather</a>
+    <a href="prices.html">Market Prices</a>
+    <a href="disease.html">Disease Guide</a>
+    <a href="tips.html">Farming Tips</a>
+</nav>
+
+<section class="hero">
+    <h2>Smart Farming for a Better Tomorrow 🌾</h2>
+    <p>Technology, knowledge and agriculture together for every farmer.</p>
+    <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+        Explore Smart Krishi
+    </button>
+</section>
+
+<main class="home-container">
+
+    <div class="welcome">
+        <h2>Welcome to Smart Krishi 👨‍🌾</h2>
+        <p>
+            Your farmer-friendly digital platform to explore crop suggestions,
+            weather information, market awareness, plant health and useful
+            farming practices — all in one place.
+        </p>
+    </div>
+
+    <h2 id="services" style="margin-bottom:25px;color:#176b38;">
+        Explore Our Services
+    </h2>
+
+    <div class="home-grid">
+
+        <div class="home-card">
+            <div class="home-icon">🌱</div>
+            <div class="home-card-content">
+                <h3>Crop Recommendation</h3>
+                <p>Explore crop suggestions according to soil types and growing seasons.</p>
+                <a href="crops.html">Explore Crops →</a>
+            </div>
+        </div>
+
+        <div class="home-card">
+            <div class="home-icon">🌦️</div>
+            <div class="home-card-content">
+                <h3>Weather Updates</h3>
+                <p>Check weather conditions and plan your agricultural activities.</p>
+                <a href="weather.html">Check Weather →</a>
+            </div>
+        </div>
+
+        <div class="home-card">
+            <div class="home-icon">💰</div>
+            <div class="home-card-content">
+                <h3>Market Prices</h3>
+                <p>Explore sample crop price information and understand market values.</p>
+                <a href="prices.html">View Prices →</a>
+            </div>
+        </div>
+
+        <div class="home-card">
+            <div class="home-icon">🦠</div>
+            <div class="home-card-content">
+                <h3>Plant Health Guide</h3>
+                <p>Learn about common crop symptoms and preventive care methods.</p>
+                <a href="disease.html">Explore Guide →</a>
+            </div>
+        </div>
+
+        <div class="home-card">
+            <div class="home-icon">📚</div>
+            <div class="home-card-content">
+                <h3>Farming Tips</h3>
+                <p>Discover helpful practices for soil, water, seeds and crop care.</p>
+                <a href="tips.html">Read Tips →</a>
+            </div>
+        </div>
+
+        <div class="home-card">
+            <div class="home-icon">♻️</div>
+            <div class="home-card-content">
+                <h3>Sustainable Agriculture</h3>
+                <p>Explore water conservation, soil health and environmentally conscious farming.</p>
+                <a href="tips.html">Learn More →</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="about-box">
+        <h2>🌿 Our Mission</h2>
+        <p>
+            Smart Krishi aims to make useful agricultural information easier
+            to access. We want to help farmers explore farming knowledge,
+            make informed decisions and adopt smarter agricultural practices
+            through a simple and accessible digital platform.
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    <p>🌱 Smart Krishi | Empowering Farmers, Growing Tomorrow</p>
+</footer>
+
+</body>
+</html>

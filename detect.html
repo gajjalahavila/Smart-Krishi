@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Scanner | Smart Krishi</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.scanner-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+.scanner-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px #00000010;
+    text-align: center;
+}
+.upload-area {
+    margin: 25px 0;
+    padding: 35px 20px;
+    border: 2px dashed #8bb89a;
+    background: #f5faf3;
+    border-radius: 15px;
+}
+.upload-area input {
+    margin-top: 20px;
+}
+#preview {
+    max-width: 100%;
+    max-height: 300px;
+    margin-top: 20px;
+    border-radius: 12px;
+    display: none;
+}
+#scanResult {
+    display: none;
+    background: #edf7e9;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    margin-top: 20px;
+    line-height: 1.7;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌱 Smart Krishi</h1>
+    <p>Empowering Farmers, Growing Tomorrow</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="crops.html">Crop Guide</a>
+    <a href="weather.html">Weather</a>
+    <a href="prices.html">Market Prices</a>
+    <a href="disease.html">Disease Guide</a>
+    <a href="tips.html">Farming Tips</a>
+    <a href="detect.html">Plant Scanner</a>
+</nav>
+
+<section class="hero">
+    <h2>🌿 Plant Health Scanner</h2>
+    <p>Upload a leaf photo to explore plant health guidance.</p>
+</section>
+
+<div class="scanner-container">
+    <div class="scanner-card">
+        <h2>📸 Upload Plant Image</h2>
+        <p>Select a clear image of a plant leaf.</p>
+
+        <div class="upload-area">
+            <h3>🌱 Choose Leaf Photo</h3>
+            <input type="file" id="leafImage" accept="image/*"
+                   onchange="previewImage(event)">
+            <br>
+            <img id="preview" alt="Uploaded leaf preview">
+        </div>
+
+        <button onclick="analyzePlant()">Analyze Image</button>
+
+        <div id="scanResult"></div>
+    </div>
+</div>
+
+<footer>
+    <p>🌱 Smart Krishi | Smart Farming for a Better Future</p>
+</footer>
+
+<script>
+function previewImage(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById("preview");
+    const result = document.getElementById("scanResult");
+
+    result.style.display = "none";
+
+    if (!file) return;
+
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+}
+
+function analyzePlant() {
+    const file = document.getElementById("leafImage").files[0];
+    const result = document.getElementById("scanResult");
+
+    if (!file) {
+        alert("Please upload a plant image first!");
+        return;
+    }
+
+    result.style.display = "block";
+    result.innerHTML = `
+        <h3>🌿 Image uploaded successfully!</h3>
+        <p>Your plant image is ready for examination.</p>
+        <p><b>Prototype limitation:</b> This demo does not use an AI model yet,
+        so it cannot identify a disease from the image.</p>
+        <p>Check the Plant Health Guide for common symptoms and prevention tips.
+        If symptoms are visible, consult a local agriculture expert for confirmation.</p>
+        <a href="disease.html">Open Disease Guide →</a>
+    `;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather | Smart Krishi</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.weather-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+.weather-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px #00000010;
+    text-align: center;
+}
+.weather-card h2 {color:#176b38;margin-bottom:20px}
+.weather-card input {
+    padding:14px;
+    width:70%;
+    max-width:400px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+.weather-result {
+    background:#edf8e9;
+    padding:20px;
+    margin-top:20px;
+    border-radius:12px;
+    display:none;
+}
+.weather-info {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:30px;
+}
+.info {
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+}
+@media(max-width:650px){
+    .weather-info {grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🌱 Smart Krishi</h1>
+<p>Empowering Farmers, Growing Tomorrow</p>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="crops.html">Crop Guide</a>
+<a href="weather.html">Weather</a>
+<a href="prices.html">Market Prices</a>
+<a href="disease.html">Disease Guide</a>
+<a href="tips.html">Farming Tips</a>
+</nav>
+
+<section class="hero">
+<h2>Weather for Farmers 🌦️</h2>
+<p>Plan your farming activities with weather awareness.</p>
+</section>
+
+<div class="weather-container">
+<div class="weather-card">
+<h2>🌤️ Check Your Location</h2>
+<p>Enter your city name to check current weather.</p><br>
+
+<input id="city" placeholder="Enter city name">
+<br><br>
+<button onclick="getWeather()">Check Weather</button>
+
+<div class="weather-result" id="result"></div>
+</div>
+
+<div class="weather-info">
+<div class="info">
+<h2>🌧️ Rainfall</h2>
+<p>Check rain forecasts before irrigation.</p>
+</div>
+<div class="info">
+<h2>🌡️ Temperature</h2>
+<p>Monitor heat conditions to protect crops.</p>
+</div>
+<div class="info">
+<h2>💨 Wind</h2>
+<p>Check wind conditions before spraying.</p>
+</div>
+</div>
+</div>
+
+<footer>
+<p>🌱 Smart Krishi | Smart Farming for a Better Future</p>
+</footer>
+
+<script>
+async function getWeather() {
+    const city = document.getElementById("city").value.trim();
+    const result = document.getElementById("result");
+
+    if (!city) {
+        alert("Please enter your city name!");
+        return;
+    }
+
+    result.style.display = "block";
+    result.innerHTML = "Loading weather information...";
+
+    try {
+        const geoResponse = await fetch(
+            `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`
+        );
+        const geoData = await geoResponse.json();
+
+        if (!geoData.results || !geoData.results.length) {
+            throw new Error("City not found");
+        }
+
+        const place = geoData.results[0];
+
+        const response = await fetch(
+            `https://api.open-meteo.com/v1/forecast?latitude=${place.latitude}&longitude=${place.longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=precipitation_probability_max&timezone=auto`
+        );
+        const data = await response.json();
+
+        const current = data.current;
+        const rain = data.daily.precipitation_probability_max[0];
+
+        result.innerHTML = `
+            <h2>📍 ${place.name}, ${place.country}</h2>
+            <h1>🌡️ ${current.temperature_2m}°C</h1>
+            <p>Humidity: ${current.relative_humidity_2m}%</p>
+            <p>Wind Speed: ${current.wind_speed_10m} km/h</p>
+            <p>Rain Probability Today: ${rain}%</p>
+            <p>Live weather data from Open-Meteo.</p>
+        `;
+    } catch (error) {
+        result.innerHTML = "Unable to get weather. Check city name and internet connection.";
+    }
+}
+</script>
+
+</body>
+</html>
